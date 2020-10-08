@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Mess from './Mess'
 import './App.css';
 
 function App() {
+let [count,Setcount]=useState(1);
+let [ismor,setmor]=useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className={`box ${ismor ? 'daylight' : ''}`}>
+      <h1>Day time={ismor ? 'Morning' : 'Night'}</h1>
+  <Mess counter={count} />
+  <br/>
+  <button onClick={()=>Setcount(count+1)}>Updated</button>
+  <br/>
+  <button onClick={()=>setmor(!ismor) }>background color change</button>
+
+      </div>
+
+      
   );
 }
 
